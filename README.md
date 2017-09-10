@@ -4,7 +4,7 @@
 No, it is not a blog to talk about CD. But I am gonna use this repository as an example to write about CD.
 :P
 
-## What do you need to run it
+## What do you need in order to run it
 
 - Docker
 
