@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test-local": "../node_modules/.bin/mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
-    "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\""
+    "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
+    "dependency-check-local": "../node_modules/.bin/nsp check --output summary",
+    "dependency-check": "nsp check --output summary"
   },
   "dependencies": {
     "react": "15.6.1",
     "react-dom": "15.6.1"
   },
   "devDependencies": {
+    "nsp": "2.8.0",
     "babel-core": "6.26.0",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "6.24.1",
