@@ -1,0 +1,19 @@
+{
+  "name": "continuous-delivery-blog",
+  "version": "1.0.0",
+  "description": "No, it is not a blog to talk about CD. But I am gonna use this repository as an example to write about CD. :P",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roselmamendes/continuous-delivery-blog.git"
+  },
+  "author": "Roselma Mendes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roselmamendes/continuous-delivery-blog/issues"
+  },
+  "homepage": "https://github.com/roselmamendes/continuous-delivery-blog#readme"
+}
