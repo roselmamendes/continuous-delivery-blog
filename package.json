@@ -4,7 +4,8 @@
   "description": "No, it is not a blog to talk about CD. But I am gonna use this repository as an example to write about CD. :P",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-local": "../node_modules/.bin/mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
+    "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\""
   },
   "dependencies": {
     "react": "15.6.1",
@@ -18,10 +19,6 @@
     "chai": "4.1.2",
     "enzyme": "2.9.1",
     "react-test-renderer": "15.6.1"
-  },
-  "scripts": {
-    "test-local": "../node_modules/.bin/mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
-    "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\""
   },
   "repository": {
     "type": "git",
