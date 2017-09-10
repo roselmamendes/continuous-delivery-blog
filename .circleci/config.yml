@@ -37,5 +37,7 @@ jobs:
       - run: |
           echo Running dependency-check
           npm run dependency-check
+          echo Running Security Static Analysis
+          npm run sec-static-analysis
           echo Running unit tests
           yarn test

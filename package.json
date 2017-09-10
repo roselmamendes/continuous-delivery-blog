@@ -7,13 +7,19 @@
     "test-local": "../node_modules/.bin/mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
     "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
     "dependency-check-local": "../node_modules/.bin/nsp check --output summary",
-    "dependency-check": "nsp check --output summary"
+    "dependency-check": "nsp check --output summary",
+    "sec-static-analysis-local": "../node_modules/.bin/eslint .",
+    "sec-static-analysis": "eslint ."
   },
   "dependencies": {
     "react": "15.6.1",
     "react-dom": "15.6.1"
   },
   "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-plugin-no-unsafe-innerhtml": "^1.0.15",
+    "eslint-plugin-react": "^6.0.0",
+    "eslint-plugin-scanjs-rules": "0.1.4",
     "nsp": "2.8.0",
     "babel-core": "6.26.0",
     "babel-preset-es2015": "6.24.1",
