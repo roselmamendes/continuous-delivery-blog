@@ -12,3 +12,5 @@ No, it is not a blog to talk about CD. But I am gonna use this repository as an 
 Build the Docker image: `docker build -t cd-blog .`
 
 `docker run -it --rm -v "$PWD":/usr/src/app -t cd-blog /bin/bash`
+
+Run tests: `docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app -t cd-blog npm run test`
