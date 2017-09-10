@@ -1,5 +1,4 @@
 import React from 'react';
-import postsRecords from '../posts.json';
 
 const Home = (props) => {
   const postComponent = props.posts.map((post) =>
