@@ -20,7 +20,8 @@
     "react-test-renderer": "15.6.1"
   },
   "scripts": {
-    "test": "../node_modules/.bin/mocha --compilers js:babel-core/register \"./src/*.spec.js\""
+    "test-local": "../node_modules/.bin/mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
+    "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\""
   },
   "repository": {
     "type": "git",
