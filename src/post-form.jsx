@@ -10,13 +10,17 @@ class PostForm extends React.Component {
   render(){
     return (
       <form>
-        <label>
+        <label id="author-label">
         Author:
-          <input type="text" value={this.state.author} />
+          <input id="author" type="text" value={this.state.author} />
         </label>
-        <label>
+        <label id="title-label">
           Title:
-          <input type="text" value={this.state.title} />
+          <input id="title" type="text" value={this.state.title} />
+        </label>
+        <label id="post-label">
+          Post:
+          <input id="post" type="text" value={this.state.post} />
         </label>
       </form>
     );
