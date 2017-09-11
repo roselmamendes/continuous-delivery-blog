@@ -9,7 +9,8 @@
     "dependency-check-local": "../node_modules/.bin/nsp check --output summary",
     "dependency-check": "nsp check --output summary",
     "sec-static-analysis-local": "../node_modules/.bin/eslint .",
-    "sec-static-analysis": "eslint ."
+    "sec-static-analysis": "eslint .",
+    "all-tests-local": "npm run dependency-check-local && npm run sec-static-analysis-local && npm run test-local"
   },
   "dependencies": {
     "react": "15.6.1",
