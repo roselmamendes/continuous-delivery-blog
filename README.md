@@ -14,10 +14,10 @@ Build the Docker image: `docker build -t cd-blog .`
 
 `docker run -it --rm -v "$PWD":/usr/src/app -t cd-blog /bin/bash`
 
-Run all tests: `docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app -t cd-blog npm run all-tests-local`
+Run all tests: `sh cd-blog.sh tests`
 
-Run unit tests: `docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app -t cd-blog npm run test-local`
+Run unit tests: `sh cd-blog.sh ut`
 
-Dependency checks: `docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app -t cd-blog npm run dependency-check-local`
+Dependency checks: `sh cd-blog.sh dc`
 
-Security Static Analisys: `docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app -t cd-blog npm run sec-static-analysis-local`
+Security Static Analisys: `sh cd-blog.sh ssa`
