@@ -21,12 +21,4 @@ describe('Post page', () => {
     expect(wrapper.find('#post')).to.have.length(1);
     expect(wrapper.find('#post-label')).to.have.length(1);
   });
-
-  xit('should submit values added to the field', () => {
-    const wrapper = shallow(<PostForm />);
-
-    wrapper.find('#author').node.value = 'Roselma Mendes';
-
-
-  });
 });
