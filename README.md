@@ -14,6 +14,10 @@ Build the Docker image: `docker build -t cd-blog .`
 
 `docker run -it --rm -v "$PWD":/usr/src/app -t cd-blog /bin/bash`
 
+Run webpack: `sh cd-blog.sh b`
+
+Run the app: `sh cd-blog.sh s` and access http://localhost:5000
+
 Run all tests: `sh cd-blog.sh tests`
 
 Run unit tests: `sh cd-blog.sh ut`

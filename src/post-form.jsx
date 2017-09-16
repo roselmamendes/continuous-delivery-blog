@@ -1,5 +1,25 @@
 import React from 'react';
-
+const style = {
+  postForm: {
+    display: 'inline-grid',
+    marginLeft: 18,
+    backgroundColor: 'antiquewhite',
+    padding: 10
+  },
+  postField: {
+    paddingBottom: 10
+  },
+  postInput: {
+    marginLeft: 5,
+    float: 'right'
+  },
+  button: {
+    backgroundColor: 'hotpink',
+    borderRadius: 5,
+    borderStyle: 'none',
+    color: 'white'
+  }
+}
 class PostForm extends React.Component {
 
   constructor(props) {
@@ -31,20 +51,20 @@ class PostForm extends React.Component {
 
   render(){
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label id="author-label">
+      <form onSubmit={this.handleSubmit} style={style.postForm}>
+        <label id="author-label" style={style.postField}>
         Author:
-          <input id="author" type="text" value={this.state.author} onChange={this.handleChangeAuthor} />
+          <input style={style.postInput} id="author" type="text" value={this.state.author} onChange={this.handleChangeAuthor} />
         </label>
-        <label id="title-label">
+        <label id="title-label" style={style.postField}>
           Title:
-          <input id="title" type="text" value={this.state.title} onChange={this.handleChangeTitle}/>
+          <input style={style.postInput} id="title" type="text" value={this.state.title} onChange={this.handleChangeTitle}/>
         </label>
-        <label id="post-label">
+        <label id="post-label" style={style.postField}>
           Post:
-          <input id="post" type="text" value={this.state.post} onChange={this.handleChangePost}/>
+          <input style={style.postInput} id="post" type="text" value={this.state.post} onChange={this.handleChangePost}/>
         </label>
-        <input type="submit" value="Submit" />
+        <input style={style.button} type="submit" value="Submit" />
       </form>
     );
   }
