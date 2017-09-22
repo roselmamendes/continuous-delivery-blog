@@ -1,29 +1,54 @@
 import React from 'react';
-
-const posts = [
-  {'title': 'some title', 'id': '1'},
-  {'title': 'some title 2', 'id': '2'},
-];
+import superagent from 'superagent';
 
 const style = {
   postsList: {
-    margin: 10,
-    width: 200,
     backgroundColor: 'antiquewhite',
-    padding: 10
+    padding: 10,
+    borderRadius: 5
   }
 }
 
-const Home = () => {
-  const postComponent = posts.map((post) =>
-      <Post key={post.id} post={post}/>
-  );
+class Home extends React.Component {
 
-  return (
-      <div style={style.postsList}>
-        {postComponent}
-      </div>
-  );
+  constructor(props){
+    super(props);
+    this.state = {posts: [], error: undefined};
+    this.loadPosts = this.loadPosts.bind(this);
+  }
+
+  render(){
+    if(this.state.error != undefined){
+      return (<div>Error</div>);
+    }else{
+      const postComponent = this.state.posts.map((post) =>
+          <Post key={post.slug} post={post}/>
+      );
+
+      return (
+          <div style={style.postsList}>
+            {postComponent}
+          </div>
+      );
+    }
+  }
+
+  componentDidMount(){
+    let postsresult;
+    superagent
+    .get('http://localhost:5000/posts')
+    .end(this.loadPosts);
+  }
+
+  loadPosts(err, res){
+    if(err){
+      console.log(err);
+      this.setState({error: err});
+      console.error(this.state.error);
+    }else{
+      this.setState({posts: res.body});
+    }
+  }
 }
 
 const Post = (props) => {

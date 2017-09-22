@@ -5,14 +5,15 @@ import PostForm from './post-form.jsx';
 import { Switch, BrowserRouter, Route, Link } from 'react-router-dom';
 
 const style = {
-  lista: {
+  menu: {
     listStyleType: 'none',
     backgroundColor: 'hotpink',
-    width: 200,
     borderRadius: 5,
-    color: 'white'
+    color: 'white',
+    marginTop: 0,
+    marginBottom: 0
   },
-  menu: {
+  menuItem: {
     marginRight: 10,
     float: 'left'
   },
@@ -25,9 +26,8 @@ const style = {
 ReactDOM.render(
   <BrowserRouter>
     <div>
-      <ul style={style.lista}>
-         <li style={style.menu}><Link style={style.compA} to="/">Home</Link></li>
-         <li><Link style={style.compA} to="/postform">Add a post</Link></li>
+      <ul style={style.menu}>
+         <li style={style.menuItem}><Link style={style.compA} to="/">Home</Link></li>
        </ul>
 
        <Switch>
