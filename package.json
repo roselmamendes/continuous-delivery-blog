@@ -4,7 +4,8 @@
   "description": "No, it is not a blog to talk about CD. But I am gonna use this repository as an example to write about CD. :P",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "./node_modules/.bin/webpack && node server.js",
+    "start-local": "node server.js",
     "build": "../node_modules/.bin/webpack -d --watch",
     "test-local": "../node_modules/.bin/mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
     "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
@@ -19,7 +20,11 @@
     "react-dom": "^15.6.1",
     "express": "^4.15.4",
     "webpack": "^3.6.0",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-loader": "^7.1.2"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
@@ -27,10 +32,6 @@
     "eslint-plugin-react": "^6.0.0",
     "eslint-plugin-scanjs-rules": "0.1.4",
     "nsp": "^2.8.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-loader": "^7.1.2",
     "mocha": "^3.5.1",
     "chai": "^4.1.2",
     "enzyme": "^2.9.1",
