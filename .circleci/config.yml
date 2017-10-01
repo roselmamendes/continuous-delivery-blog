@@ -22,10 +22,27 @@ jobs:
           npm run sec-static-analysis
           echo Running unit tests
           yarn test
-  deploy:
+  deploy-stg:
     machine:
         enabled: true
     working_directory: ~/continuous-delivery-blog
+    environment:
+      HEROKU_APP: "stg-continuous-delivery-blog"
+    steps:
+      - checkout
+      - run: bash .circleci/setup-heroku.sh
+      - run:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            git push heroku master
+            heroku restart
+            fi
+  deploy-prod:
+    machine:
+        enabled: true
+    working_directory: ~/continuous-delivery-blog
+    environment:
+      HEROKU_APP: "continuous-delivery-blog"
     steps:
       - checkout
       - run: bash .circleci/setup-heroku.sh
@@ -40,6 +57,14 @@ workflows:
   pipeline:
     jobs:
       - build
-      - deploy:
+      - deploy-stg:
           requires:
             - build
+      - hold:
+          type: approval
+          requires:
+            - build
+            - deploy-stg
+      - deploy-prod:
+          requires:
+            - hold
