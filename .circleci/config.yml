@@ -27,12 +27,12 @@ jobs:
         enabled: true
     working_directory: ~/continuous-delivery-blog
     steps:
+      - checkout
       - run: bash .circleci/setup-heroku.sh
       - run:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
             git push heroku master
-            heroku run python manage.py deploy
             heroku restart
             fi
 workflows:
