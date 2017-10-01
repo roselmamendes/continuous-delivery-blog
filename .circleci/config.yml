@@ -32,28 +32,28 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-    test:
-      # run tests!
-      - run: |
-          echo Running dependency-check
-          npm run dependency-check
-          echo Running Security Static Analysis
-          npm run sec-static-analysis
-          echo Running unit tests
-          yarn test
-    deploy-stg:
-       - run: bash .circleci/setup-heroku.sh
-       - add_ssh_keys:
-         fingerprints:
-           - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
-      - deploy:
-        name: Deploy Master to Heroku
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            git push heroku master
-            heroku run python manage.py deploy
-            heroku restart
-          fi
+  test:
+    # run tests!
+    - run: |
+        echo Running dependency-check
+        npm run dependency-check
+        echo Running Security Static Analysis
+        npm run sec-static-analysis
+        echo Running unit tests
+        yarn test
+  deploy-stg:
+     - run: bash .circleci/setup-heroku.sh
+     - add_ssh_keys:
+       fingerprints:
+         - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
+    - deploy:
+      name: Deploy Master to Heroku
+      command: |
+        if [ "${CIRCLE_BRANCH}" == "master" ]; then
+          git push heroku master
+          heroku run python manage.py deploy
+          heroku restart
+        fi
 workflows:
   version: 2
   pipeline:
