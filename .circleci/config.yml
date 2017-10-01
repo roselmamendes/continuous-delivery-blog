@@ -23,7 +23,7 @@ jobs:
           echo Running unit tests
           yarn test
   deploy:
-    - steps:
+    steps:
       - run: bash .circleci/setup-heroku.sh
       - add_ssh_keys:
         fingerprints:
