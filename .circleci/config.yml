@@ -54,18 +54,18 @@ jobs:
             heroku run python manage.py deploy
             heroku restart
           fi
-  workflows:
-    version: 2
-    pipeline:
-      jobs:
-        - build
-        - test
-          requires:
-            - build
-        - hold:
-         type: approval
-         requires:
-           - test
-        - deploy-stg
-          requires:
-            - hold
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - build
+      - test
+        requires:
+          - build
+      - hold:
+       type: approval
+       requires:
+         - test
+      - deploy-stg
+        requires:
+          - hold
