@@ -32,15 +32,15 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-  test:
-    # run tests!
-    - run: |
-        echo Running dependency-check
-        npm run dependency-check
-        echo Running Security Static Analysis
-        npm run sec-static-analysis
-        echo Running unit tests
-        yarn test
+
+      # run tests!
+      - run: |
+          echo Running dependency-check
+          npm run dependency-check
+          echo Running Security Static Analysis
+          npm run sec-static-analysis
+          echo Running unit tests
+          yarn test
   deploy-stg:
     - run: bash .circleci/setup-heroku.sh
     - add_ssh_keys:
@@ -59,13 +59,10 @@ workflows:
   pipeline:
     jobs:
       - build
-      - test
-        requires:
-          - build
       - hold:
-       type: approval
-       requires:
-         - test
-      - deploy-stg
+        type: approval
         requires:
-          - hold
+         - build
+      - deploy-stg:
+        requires:
+            - hold
