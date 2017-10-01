@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/roselmamendes/continuous-delivery-blog.svg?style=svg)](https://circleci.com/gh/roselmamendes/continuous-delivery-blog)
 # Continuous Delivery Blog
 
-No. It is not a blog to talk about CD. But I am gonna use this repository as an example to write about CD.
+No, it is not a blog to talk about CD. But I am gonna use this repository as an example to write about CD.
 :P
 
 ## What do you need in order to run it
