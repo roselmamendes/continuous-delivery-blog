@@ -56,13 +56,13 @@ jobs:
         fi
 workflows:
   version: 2
-    pipeline:
-      jobs:
-        - build
-        - hold:
-          type: approval
-          requires:
-            - build
-        - deploy-stg:
-          requires:
-            - hold
+  pipeline:
+    jobs:
+      - build
+      - hold:
+        type: approval
+        requires:
+          - build
+      - deploy-stg:
+        requires:
+          - hold
