@@ -23,6 +23,9 @@ jobs:
           echo Running unit tests
           yarn test
   deploy:
+    machine:
+        enabled: true
+    working_directory: ~/continuous-delivery-blog
     steps:
       - run: bash .circleci/setup-heroku.sh
       - add_ssh_keys:
