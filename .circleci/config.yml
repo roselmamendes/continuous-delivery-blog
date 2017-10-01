@@ -42,10 +42,10 @@ jobs:
         echo Running unit tests
         yarn test
   deploy-stg:
-     - run: bash .circleci/setup-heroku.sh
-     - add_ssh_keys:
-         fingerprints:
-           - "5f:62:12:0a:8c:f6:84:4a:92:ff:e9:16:51:ab:2f:9d"
+    - run: bash .circleci/setup-heroku.sh
+    - add_ssh_keys:
+       fingerprints:
+         - "5f:62:12:0a:8c:f6:84:4a:92:ff:e9:16:51:ab:2f:9d"
     - deploy:
       name: Deploy Master to Heroku
       command: |
