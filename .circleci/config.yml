@@ -40,10 +40,6 @@ workflows:
   pipeline:
     jobs:
       - build
-      - hold:
-        type: approval
-        requires:
-          - build
       - deploy:
         requires:
           - hold
